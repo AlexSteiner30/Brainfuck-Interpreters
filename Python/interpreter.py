@@ -1,28 +1,41 @@
-program = input()
 
-tape = [0]
-cell_index = 0
+def main():
+    try:
+        mem = [] 
+        memPos = 0;
 
-pointer = 0
-while pointer < len(program):
-	instruction = program[pointer]
-	if instruction == "+":
-		tape[cell_index] += 1
-		if tape[cell_index] == 256:
-			tape[cell_index] = 0
 
-	elif instruction == "-":
-		tape[cell_index] -= 1
-		if tape[cell_index] == -1:
-			tape[cell_index] = 255
+        count = 0;
 
-	elif instruction == "<":
-		cell_index -= 1
+        while count < command.length:
+            if (command[count] == '>'):
+                memPos += 1;
 
-	elif instruction == ">":
-		cell_index += 1
+            elif (command[count] == '<'):
+                memPos -= 1;
+            
+            elif (command[count] == '+'):
+                mem[memPos] += 1;
+                
+                if (mem[memPos] > 255):
+                    mem[memPos] = 0;
 
-	elif instruction == ".":
-		print(chr(tape[cell_index]), end="")
-	
-	pointer += 1
+            elif command[count] == '-':
+                mem[memPos] = 1;
+
+                if mem[memPos] > 255:
+                    mem[memPos] = 0;
+
+            elif command[count] == '.':
+                console.log(String.fromCharCode(mem[memPos]));
+
+            elif command[count] == ',':
+                input = input();
+                mem[memPos] = input;
+     
+            count+=1
+    except:
+        print("Erorr")
+  
+if __name__ == "__main__":
+	main()

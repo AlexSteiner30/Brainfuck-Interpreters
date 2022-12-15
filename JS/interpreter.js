@@ -2,6 +2,8 @@ var fs = require('fs');
 
 function main()
 {
+    try{
+    
         let mem = [] 
         let memPos = 0;
 
@@ -9,7 +11,7 @@ function main()
             mem.push(i);
         }
 
-        let file = fs.readFileSync("brainfuck.bf");
+        let file = fs.readFileSync(process.argv[2]);
         var command = file.toString();
 
         var count = 0;
@@ -50,6 +52,11 @@ function main()
 
             count++;
         }
+    }
+    catch
+    {
+        console.log("Error");
+    }
   
 }
 
