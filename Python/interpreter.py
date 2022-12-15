@@ -2,32 +2,37 @@
 def main():
     try:
         mem = [] 
-        memPos = 0;
+        memPos = 0 
+
+        for i in range (30000):
+            mem.append(i);
 
 
-        count = 0;
+        count = 0
 
-        while count < command.length:
+        command = open('brainfuck.bf').read()
+
+        while count < len(command):
             if (command[count] == '>'):
-                memPos += 1;
+                memPos += 1
 
             elif (command[count] == '<'):
-                memPos -= 1;
+                memPos -= 1
             
             elif (command[count] == '+'):
-                mem[memPos] += 1;
+                mem[memPos] += 1
                 
                 if (mem[memPos] > 255):
-                    mem[memPos] = 0;
+                    mem[memPos] = 0
 
             elif command[count] == '-':
-                mem[memPos] = 1;
+                mem[memPos] = 1
 
                 if mem[memPos] > 255:
                     mem[memPos] = 0;
 
             elif command[count] == '.':
-                console.log(String.fromCharCode(mem[memPos]));
+                print(chr(mem[memPos]), end="");
 
             elif command[count] == ',':
                 input = input();
@@ -35,7 +40,7 @@ def main():
      
             count+=1
     except:
-        print("Erorr")
-  
+        print("Error")
+
 if __name__ == "__main__":
 	main()
