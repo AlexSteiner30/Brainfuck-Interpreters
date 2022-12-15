@@ -1,6 +1,8 @@
 #include <stdio.h>
 
-int main()
+int main(char** args)
 {
+    printf(args[0]);
+
     return 0;
 }
