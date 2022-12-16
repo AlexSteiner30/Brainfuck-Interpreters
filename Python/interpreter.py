@@ -1,7 +1,7 @@
 import sys
 
 def main(*argv):
-        mem = [0] 
+        mem = [0]
         memPos = 0 
 
         count = 0
@@ -31,14 +31,18 @@ def main(*argv):
                     mem[memPos] = 0;
 
             elif command[count] == '.':
-                print(chr(mem[memPos]), end="");
+                try:
+                    print(chr(mem[memPos]), end="");
+                except:
+                    print((mem[memPos]), end="");
 
             elif command[count] == ',':
-                input = input()
-                mem[memPos] = input
+                inputTxt = input()
+                mem[memPos] = inputTxt
 
             elif command[count] == "[":
-               pass
+               mem.append(0)
+               print(mem[memPos + 1])
 				
             elif command[count] == "]":
                 pass
